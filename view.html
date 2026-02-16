@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>View - Webora</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        min-height: 100vh;
+        padding: 60px 20px;
+
+        /* Animated gradient background */
+        background: linear-gradient(-45deg, #667eea, #764ba2, #ff758c, #42e695);
+        background-size: 400% 400%;
+        animation: gradientMove 15s ease infinite;
+        position: relative;
+    }
+
+    @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .box-container {
+        display: flex;
+        flex-direction: column;
+        gap: 70px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.08);
+        padding: 25px;
+        border-radius: 20px;
+        transition: 0.4s ease;
+    }
+
+    .item:hover {
+        transform: translateY(-6px);
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* CLICKABLE PREVIEW */
+    .box {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        transition: 0.4s ease;
+        cursor: pointer;
+    }
+
+    .box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s ease;
+        display: block;
+    }
+
+    .box:hover img {
+        transform: scale(1.05);
+    }
+
+    .title {
+        font-size: 20px;
+        font-weight: 600;
+        color: white;
+        letter-spacing: 0.5px;
+    }
+
+    /* CONTACT BUTTON AT BOTTOM */
+    .contact-button {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 16px 32px;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        border-radius: 12px;
+        background: white;
+        color: #333;
+        cursor: pointer;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        transition: 0.3s ease;
+        z-index: 1000;
+    }
+
+    .contact-button:hover {
+        transform: translateX(-50%) translateY(-3px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding: 40px 15px;
+        }
+
+        .title {
+            font-size: 16px;
+        }
+
+        .item {
+            padding: 20px;
+        }
+
+        .contact-button {
+            padding: 14px 28px;
+            font-size: 16px;
+        }
+    }
+
+</style>
+</head>
+<body>
+
+<div class="box-container">
+
+    <!-- TEMPLATE ONE -->
+    <div class="item">
+        <a href="https://quprints.github.io" target="_blank" class="box">
+            <img src="Images/Quprints.png" alt="Quprints Website Preview">
+        </a>
+        <div class="title">Quprints - Malmö</div>
+    </div>
+
+    <!-- TEMPLATE TWO -->
+    <div class="item">
+        <a href="https://Supplyit.github.io" target="_blank" class="box">
+            <img src="Images/Supplyit.png" alt="Supplyit Website Preview">
+        </a>
+        <div class="title">Supplyit - Malmö</div>
+    </div>
+
+    <!-- TEMPLATE THREE -->
+    <div class="item">
+        <a href="https://Orbitovation.github.io" target="_blank" class="box">
+            <img src="Images/Orbitovation.png" alt="Orbitovation Website Preview">
+        </a>
+        <div class="title">Orbitovation - Malmö</div>
+    </div>
+
+</div>
+
+<!-- CONTACT BUTTON AT BOTTOM -->
+<button class="contact-button" onclick="goToContact()">Contact Us</button>
+
+<script>
+    function goToContact() {
+        window.location.href = "contact.html";
+    }
+</script>
+
+</body>
+</html>
